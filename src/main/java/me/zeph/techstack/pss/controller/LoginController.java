@@ -16,7 +16,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(UserVO userVO, Model model) {
-		model.addAttribute("username", userVO.getUsername());
+		model.addAttribute("userVO ", userVO);
 		return "home";
 	}
 
