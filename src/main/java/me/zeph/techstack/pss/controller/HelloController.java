@@ -1,4 +1,4 @@
-package me.zeph.techstack.pss;
+package me.zeph.techstack.pss.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
