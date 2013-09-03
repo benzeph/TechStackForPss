@@ -6,6 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import java.util.Set;
+
 @Controller
 public class LoginController {
 
@@ -16,8 +22,14 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(UserVO userVO, Model model) {
-		model.addAttribute("userVO ", userVO);
-		return "home";
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<UserVO>> violations = validator.validate(userVO);
+		if (violations.isEmpty()) {
+			model.addAttribute("userVO ", userVO);
+			return "home";
+		}
+		return "login";
 	}
 
 }
