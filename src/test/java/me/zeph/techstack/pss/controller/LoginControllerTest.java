@@ -12,7 +12,7 @@ public class LoginControllerTest {
 	public void shouldGoToLoginPageWhenUserNameIsEmpty() {
 		LoginController loginController = new LoginController();
 		UserVO userVO = new UserVO("", "123456");
-		String viewName = loginController.login(userVO, new ExtendedModelMap());
+		String viewName = loginController.login(userVO, null, new ExtendedModelMap());
 		assertThat(viewName, is("login"));
 	}
 }
