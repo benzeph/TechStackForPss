@@ -1,5 +1,6 @@
-<form action="/TechStackForPss/login" method="post">
-    <div><label>username:</label><input type="text" name="username"/></div>
-    <div><label>password:</label><input type="password" name="password"/></div>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<form:form action="/TechStackForPss/login" method="post" commandName="userVO">
+    <div><label>username:</label><form:input path="username"/></div>
+    <div><label>password:</label><form:password path="password"/></div>
     <input type="submit" value="submit"/>
-</form>
+</form:form>

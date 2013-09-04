@@ -10,6 +10,10 @@ public class UserVO {
 	@NotEmpty
 	private String password;
 
+	public UserVO() {
+
+	}
+
 	public UserVO(String username, String password) {
 		this.username = username;
 		this.password = password;
